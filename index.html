@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html  ng-app lang="en">
+<head>
+	<link href="assets/css/bootstrap.css" rel="stylesheet">
+	<link href="assets/css/boostrap-responsive.css" rel="stylesheet">
+</head>
+
+<body ng-controller="PhoneListCtrl">
+	<div class="container-fluid">
+		<div class="span3">
+			<h3>Kieran Foxley-Jones</h3>
+			<h4>Web Developer</h4>
+
+		</div>
+		<div class="span8">
+			<h4>Summary</h4>
+			<p>{{summary}}</p>			
+			<h4>Avaliability</h4>
+			<p>{{avaliability}}</p>
+			<h4>Skills</h4>
+			<div class="row">
+				<div class="span2">
+					<h5>Languages</h5>
+					<ul>
+						<li ng-repeat="lang in languages">
+						{{lang.language}}
+						</li>
+					</ul>
+				</div>
+				<div class="span2">
+					<h5>Frameworks</h5>
+					<ul ng-repeat="frame in frameworks">
+						<li>{{frame.framework}}</li>
+					</ul>
+				</div>
+				<div class="span2">
+					<h5>Software</h5>
+					<ul>
+						<li ng-repeat="soft in softwareTools">{{soft.software}}</li>
+					</ul>
+				</div>
+			</div>
+			<h4>Experiance</h4>
+			<div ng-repeat="exper in experiance">
+				<h5>{{exper.name}}</h5>
+				<ul>
+					<li ng-repeat="bullets in exper.bullets">{{bullets.point}}</li>
+				</ul>
+			</div>			
+		</div>
+
+
+	</div>
+
+	<script src="assets/js/jquery-1.9.1.min.js" ></script>
+	<script src="assets/js/angular.min.js" ></script>
+	<script src="assets/js/bootstrap.min.js" ></script>
+	<script src="assets/js/controllers.js" ></script>
+</body>
+</html>
