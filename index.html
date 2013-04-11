@@ -1,55 +1,68 @@
 <!DOCTYPE html>
 <html  ng-app lang="en">
 <head>
+	<title>{{title}}</title>
+	<meta charset="utf-8">
 	<link href="assets/css/bootstrap.css" rel="stylesheet">
 	<link href="assets/css/boostrap-responsive.css" rel="stylesheet">
 </head>
 
-<body ng-controller="PhoneListCtrl">
+<body ng-controller="CirVitCtrl">
 	<div class="container-fluid">
 		<div class="span3">
-			<h3>Kieran Foxley-Jones</h3>
-			<h4>Web Developer</h4>
-
+			<h3>{{cv.name}}</h3>
+			<h4>{{cv.occupation}}</h4>
+			<h5>{{cv.email}}</h5>
+			<ul class="unstyled">
+				<li ng-repeat="address in cv.details.address">{{address.line}}</li>
+				<li>{{cv.details.phone}}</li>
+			</ul>
+			<ul>
+				<li ng-repeat="link in cv.links"><a href="{{link.link}}">{{link.name}}</a></li>
+			</ul>
 		</div>
 		<div class="span8">
 			<h4>Summary</h4>
-			<p>{{summary}}</p>			
+			<p>{{cv.summary}}</p>			
 			<h4>Avaliability</h4>
-			<p>{{avaliability}}</p>
+			<p>{{cv.avaliability}}</p>
 			<h4>Skills</h4>
 			<div class="row">
 				<div class="span2">
 					<h5>Languages</h5>
 					<ul>
-						<li ng-repeat="lang in languages">
+						<li ng-repeat="lang in cv.languages">
 						{{lang.language}}
 						</li>
 					</ul>
 				</div>
 				<div class="span2">
 					<h5>Frameworks</h5>
-					<ul ng-repeat="frame in frameworks">
+					<ul ng-repeat="frame in cv.frameworks">
 						<li>{{frame.framework}}</li>
 					</ul>
 				</div>
 				<div class="span2">
 					<h5>Software</h5>
 					<ul>
-						<li ng-repeat="soft in softwareTools">{{soft.software}}</li>
+						<li ng-repeat="soft in cv.softwareTools">{{soft.software}}</a></li>
 					</ul>
 				</div>
 			</div>
 			<h4>Experiance</h4>
-			<div ng-repeat="exper in experiance">
-				<h5>{{exper.name}}</h5>
+			<div ng-repeat="exper in cv.experiances">
+				<h5><a ng-href="{{exper.link}}">{{exper.name}}</a></h5>
 				<ul>
 					<li ng-repeat="bullets in exper.bullets">{{bullets.point}}</li>
 				</ul>
-			</div>			
+			</div>	
+			<h4>Education</h4>
+			<h3>Course name</h3>		
+			<ul>
+				<li>results</li>
+				<li>awards</li>
+			</ul>
 		</div>
-
-
 	</div>
 
 	<script src="assets/js/jquery-1.9.1.min.js" ></script>

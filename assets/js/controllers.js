@@ -5,10 +5,26 @@
 //
 //Temp JSON will be grqabbed from a DB at some point
 var json = {
-		'summary' :
-			'testSumm',
-		'avaliability' :
-			'testAvail',
+		'title' : 'Kieran Foxley-Jones Curriculum Vitae',
+		'name' : 'Kieran Foxley-Jones',
+		'occupation' : 'Web Developer',
+		'email' : 'KieranF-J@blueyonder.co.uk',
+		'details' : {
+			'address' : [
+				{'line' : '4 Ribble Close'},
+				{'line' : 'Brockworth'},
+				{'line' : 'Gloucester'},
+				{'line' : 'GL3 4LF'}				
+			],
+			'phone' : '07800 555555'
+		},
+		'links' : [
+			{'name' : 'TestLinkName1', 'link' : 'http://www.example.com/test1/'},
+			{'name' : 'TestLinkName2', 'link' : 'http://www.example.com/test2/'},
+			{'name' : 'TestLinkName3', 'link' : 'http://www.example.com/test3/'}
+		],
+		'summary' : 'testSumm',
+		'avaliability' : 'testAvail',
 		'languages' : [
 			{'language' : 'JavaScript'},
 			{'language' : 'Java'},
@@ -27,7 +43,8 @@ var json = {
 		],
 		'experiances' : [
 			{
-				'name' : 'Nupe.com',
+				'name' : 'Name1',
+				'link' : 'http://test.com',
 				'bullets' : [
 					{'point' : 'point1'},
 					{'point' : 'point2'},
@@ -35,7 +52,8 @@ var json = {
 				]
 			},
 			{
-				'name' : 'Gloucestershire Fire Service',
+				'name' : 'Name2',
+				'link' : 'http://test.com',
 				'bullets' : [
 					{'point' : 'point1'},
 					{'point' : 'point2'},
@@ -44,15 +62,11 @@ var json = {
 			}
 		]
 	}
-function PhoneListCtrl($scope) {
+function CirVitCtrl($scope) {
 
 	//loads json into scope properties for output
-	$scope.summary = json.summary;
-	$scope.avaliability = json.avaliability;
-	$scope.languages = json.languages;
-	$scope.frameworks = json.frameworks;
-	$scope.softwareTools = json.softwareTools;
-	$scope.experiance = json.experiances;
+	$scope.cv = json;
+
 	console.log($scope);
 }
 
